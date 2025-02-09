@@ -15,20 +15,20 @@ extern QueueHandle_t xQueueParameter;
 
 void hd44780(void *pvParameters)
 {
-    hd44780_t lcd = {
-        .write_cb = NULL,
-        .font = HD44780_FONT_5X8,
-        .lines = 2,
-        .pins = {
-            .rs = CONFIG_RS_GPIO,
-            .e  = CONFIG_E_GPIO,
-            .d4 = CONFIG_D4_GPIO,
-            .d5 = CONFIG_D5_GPIO,
-            .d6 = CONFIG_D6_GPIO,
-            .d7 = CONFIG_D7_GPIO,
-            .bl = HD44780_NOT_USED
-        }
-    };
+	hd44780_t lcd = {
+		.write_cb = NULL,
+		.font = HD44780_FONT_5X8,
+		.lines = 2,
+		.pins = {
+			.rs = CONFIG_RS_GPIO,
+			.e	= CONFIG_E_GPIO,
+			.d4 = CONFIG_D4_GPIO,
+			.d5 = CONFIG_D5_GPIO,
+			.d6 = CONFIG_D6_GPIO,
+			.d7 = CONFIG_D7_GPIO,
+			.bl = HD44780_NOT_USED
+		}
+	};
 
 	// Enable backlight control
 	if (CONFIG_BL_GPIO != -1) {
@@ -42,14 +42,14 @@ void hd44780(void *pvParameters)
 	ESP_LOGW(pcTaskGetName(0), "Enable 4-line display.");
 #endif
 
-    ESP_ERROR_CHECK(hd44780_init(&lcd));
+	ESP_ERROR_CHECK(hd44780_init(&lcd));
 
 	PARAMETER_t paramBuf;
 	bool _lcd = true;
-    bool _cursor = false;
-    bool _blink = false;
-    uint8_t _col = 0;
-    uint8_t _line = 0;
+	bool _cursor = false;
+	bool _blink = false;
+	uint8_t _col = 0;
+	uint8_t _line = 0;
 
 	while(1) {
 		// Wait for input
