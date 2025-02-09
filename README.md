@@ -1,5 +1,5 @@
-# esp-idf-remote-hd44780
-Control the HD44780 using HTTP/MQTT.   
+# esp-idf-remote-lcd
+Control the HD44780 LCD using HTTP/MQTT.   
 I use [this](https://github.com/UncleRus/esp-idf-lib/tree/master/components/hd44780) component.   
 It's great work.   
 I made this to know if there are any notify on my HEAD LESS linux server.   
@@ -11,7 +11,8 @@ I made this to know if there are any notify on my HEAD LESS linux server.
 
 
 # Software requirements
-ESP-IDF V4.4/V5.0.   
+ESP-IDF V5.0 or later.   
+ESP-IDF V4.4 release branch reached EOL in July 2024.   
 
 # Hardware requirements
 Character display using HD44780.   
