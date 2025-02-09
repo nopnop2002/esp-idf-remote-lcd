@@ -32,6 +32,7 @@ idf.py flash
 ![config-app](https://user-images.githubusercontent.com/6020549/215645553-858aaf34-f906-466f-b2bf-ef690b7315fa.jpg)
 
 ## WiFi Setting   
+Set the information of your access point.   
 ![config-wifi-1](https://user-images.githubusercontent.com/6020549/215234488-b980e32a-96d0-49b7-93dc-c1f476780975.jpg)
 
 You can connect using the mDNS hostname instead of the IP address.   
@@ -48,6 +49,7 @@ Using MQTT
 ![config-protocol-mqtt](https://user-images.githubusercontent.com/6020549/215645755-a72e1837-287d-4172-8850-e2fabe35f8b1.jpg)
 
 ## Device Setting   
+Set the information of HD44780 device.   
 ![config-device](https://user-images.githubusercontent.com/6020549/215236874-f2010efc-c843-4a1f-9420-d485e43e23a7.jpg)   
 ___The initial value is no backlight control.___   
 
