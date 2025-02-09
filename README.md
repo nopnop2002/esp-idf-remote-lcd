@@ -1,6 +1,6 @@
 # esp-idf-remote-hd44780
 Control the HD44780 using HTTP/MQTT.   
-I use [this](https://github.com/UncleRus/esp-idf-lib) library.   
+I use [this](https://github.com/UncleRus/esp-idf-lib/tree/master/components/hd44780) component.   
 It's great work.   
 I made this to know if there are any notify on my HEAD LESS linux server.   
 ![head-less-linux](https://user-images.githubusercontent.com/6020549/219907409-27180c9f-5102-449e-b228-574bc881bf18.JPG)
@@ -21,7 +21,6 @@ Usually called 1602LCD/1604LCD.
 ```Shell
 git clone https://github.com/nopnop2002/esp-idf-remote-hd44780
 cd esp-idf-remote-hd44780
-git clone https://github.com/UncleRus/esp-idf-lib.git
 idf.py menuconfig
 idf.py flash
 ```

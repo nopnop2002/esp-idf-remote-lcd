@@ -1,5 +1,5 @@
 /*
-	HD44780 HTTP S erver Example
+	HD44780 remote control using ESP-IDF
 
 	This example code is in the Public Domain (or CC0 licensed, at your option.)
 

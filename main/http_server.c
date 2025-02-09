@@ -1,4 +1,5 @@
-/* HTTP Server Example
+/*
+	 HTTP Server Example
 
 	 This example code is in the Public Domain (or CC0 licensed, at your option.)
 
@@ -20,8 +21,6 @@
 #include "cJSON.h"
 
 #include "parameter.h"
-
-#if CONFIG_NETWORK_HTTP
 
 static const char *TAG = "HTTP";
 
@@ -557,4 +556,3 @@ void http_server(void *pvParameters)
 	ESP_LOGI(TAG, "finish");
 	vTaskDelete(NULL);
 }
-#endif
