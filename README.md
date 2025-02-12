@@ -95,7 +95,7 @@ ___The initial value is no backlight control.___
 ```curl -X POST -H "Content-Type: application/json" -d '{"lcd":"on", "cursor":"on", "blink":"on"}' http://esp32-server.local:8080/api/control```
 
 - clear lcd   
-```curl -X POST -H "Content-Type: application/json" http://esp32-server.local:8080/api/clear```
+```curl -X POST http://esp32-server.local:8080/api/clear```
 
 - set position   
 ```curl -X POST -H "Content-Type: application/json" -d '{"col":0, "line":0}' http://esp32-server.local:8080/api/gotoxy```
