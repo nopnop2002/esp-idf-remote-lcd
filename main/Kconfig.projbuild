@@ -7,6 +7,7 @@ menu "Application configuration"
 		default 48 if IDF_TARGET_ESP32S3
 		default 18 if IDF_TARGET_ESP32C2
 		default 19 if IDF_TARGET_ESP32C3
+		default 30 if IDF_TARGET_ESP32C6
 
 	menu "WiFi Setting"
 
@@ -99,7 +100,7 @@ menu "Application configuration"
 			range 0 GPIO_RANGE_MAX
 			default 19 if IDF_TARGET_ESP32
 			default  1 if IDF_TARGET_ESP32S2 || IDF_TARGET_ESP32S3
-			default  0 if IDF_TARGET_ESP32C3 || IDF_TARGET_ESP32C2
+			default  0 # C3 and others
 			help
 				GPIO number (IOxx) to HD44780 RS.
 
@@ -108,7 +109,7 @@ menu "Application configuration"
 			range 0 GPIO_RANGE_MAX
 			default 18 if IDF_TARGET_ESP32
 			default  2 if IDF_TARGET_ESP32S2 || IDF_TARGET_ESP32S3
-			default  1 if IDF_TARGET_ESP32C3 || IDF_TARGET_ESP32C2
+			default  1 # C3 and others
 			help
 				GPIO number (IOxx) to HD44780 E.
 
@@ -117,7 +118,7 @@ menu "Application configuration"
 			range 0 GPIO_RANGE_MAX
 			default  5 if IDF_TARGET_ESP32
 			default  3 if IDF_TARGET_ESP32S2 || IDF_TARGET_ESP32S3
-			default  2 if IDF_TARGET_ESP32C3 || IDF_TARGET_ESP32C2
+			default  2 # C3 and others
 			help
 				GPIO number (IOxx) to HD44780 D4.
 
@@ -126,7 +127,7 @@ menu "Application configuration"
 			range 0 GPIO_RANGE_MAX
 			default 17 if IDF_TARGET_ESP32
 			default  4 if IDF_TARGET_ESP32S2 || IDF_TARGET_ESP32S3
-			default  3 if IDF_TARGET_ESP32C3 || IDF_TARGET_ESP32C2
+			default  3 # C3 and others
 			help
 				GPIO number (IOxx) to HD44780 D5.
 
@@ -135,7 +136,7 @@ menu "Application configuration"
 			range 0 GPIO_RANGE_MAX
 			default 16 if IDF_TARGET_ESP32
 			default  5 if IDF_TARGET_ESP32S2 || IDF_TARGET_ESP32S3
-			default  4 if IDF_TARGET_ESP32C3 || IDF_TARGET_ESP32C2
+			default  4 # C3 and others
 			help
 				GPIO number (IOxx) to HD44780 D6.
 
@@ -144,7 +145,7 @@ menu "Application configuration"
 			range 0 GPIO_RANGE_MAX
 			default  4 if IDF_TARGET_ESP32
 			default  6 if IDF_TARGET_ESP32S2 || IDF_TARGET_ESP32S3
-			default  5 if IDF_TARGET_ESP32C3 || IDF_TARGET_ESP32C2
+			default  5 # C3 and others
 			help
 				GPIO number (IOxx) to HD44780 D7.
 
@@ -155,12 +156,11 @@ menu "Application configuration"
 			help
 				GPIO number (IOxx) to HD44780 BL.
 
-	config 4LINE
-		bool "Enable 4-line display"
-		default n
-		help
-			Enable 4-line display.
-
+		config 4LINE
+			bool "Enable 4-line display"
+			default n
+			help
+				Enable 4-line display.
 
 	endmenu
 

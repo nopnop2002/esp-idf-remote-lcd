@@ -55,7 +55,7 @@ ___The initial value is no backlight control.___
 
 
 # Wiring
-|LCD||ESP32|ESP32S2/S3|ESP32C2/C3||
+|LCD||ESP32|ESP32S2/S3|ESP32C2/C3/C6||
 |:-:|:-:|:-:|:-:|:-:|:-|
 |VSS|--|GND|GND|GND||
 |VDD|--|3.3V|3.3V|3.3V||
