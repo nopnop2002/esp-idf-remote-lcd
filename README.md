@@ -115,15 +115,15 @@ ___The initial value is no backlight control.___
 # Backlight control   
 ___A transistor is required for backlight control.___   
 ```
-                  emitter
-ESP32 GND -----------------+
-                           |
-                    base   /
-ESP32 BL  -----^^^--------|    SS8050
-                           \
-               collector   |
-                           +------- LCD K
 ESP32 3.3V/5V --------------------- LCD A
+                           +------- LCD K
+                           |collector
+                           |
+                     base /
+ESP32 BL  -----^^^--------|    SS8050
+              100ohm      \
+                           |emitter
+ESP32 GND -----------------+
 
 ```
 
