@@ -58,20 +58,20 @@ ___The initial value is no backlight control.___
 |LCD||ESP32|ESP32S2/S3|ESP32C2/C3/C6||
 |:-:|:-:|:-:|:-:|:-:|:-|
 |VSS|--|GND|GND|GND||
-|VDD|--|3.3V/5V|3.3V/5V|3.3V/5V|*2|
+|VDD|--|3.3V/5V|3.3V/5V|3.3V/5V|(*2)|
 |VO|--||||Variable resistor output|
-|RS|--|GPIO19|GPIO1|GPIO0|*1|
+|RS|--|GPIO19|GPIO1|GPIO0|(*1)|
 |RW|--|GND|GND|GND||
-|E|--|GPIO18|GPIO2|GPIO1|*1|
+|E|--|GPIO18|GPIO2|GPIO1|(*1)|
 |D0|--|N/C|N/C|N/C||
 |D1|--|N/C|N/C|N/C||
 |D2|--|N/C|N/C|N/C||
 |D3|--|N/C|N/C|N/C||
-|D4|--|GPIO5|GPIO3|GPIO2|*1|
-|D5|--|GPIO17|GPIO4|GPIO3|*1|
-|D6|--|GPIO16|GPIO5|GPIO4|*1|
-|D7|--|GPIO4|GPIO6|GPIO5|*1|
-|A|--|3.3V/5V|3.3V/5V|3.3V/5V|*2|
+|D4|--|GPIO5|GPIO3|GPIO2|(*1)|
+|D5|--|GPIO17|GPIO4|GPIO3|(*1)|
+|D6|--|GPIO16|GPIO5|GPIO4|(*1)|
+|D7|--|GPIO4|GPIO6|GPIO5|(*1)|
+|A|--|3.3V/5V|3.3V/5V|3.3V/5V|(*2)|
 |K|--|GND|GND|GND||
 
 (*1) You can change any GPIO using menuconfig.   
