@@ -58,7 +58,8 @@ ___The initial value is no backlight control.___
 |LCD||ESP32|ESP32S2/S3|ESP32C2/C3/C6||
 |:-:|:-:|:-:|:-:|:-:|:-|
 |VSS|--|GND|GND|GND||
-|VDD|--|3.3V|3.3V|3.3V||
+|VDD|--|3.3V|3.3V|3.3V|*2|
+|VDD|--|5V|5V|5V|*2|
 |VO|--||||Variable resistor output|
 |RS|--|GPIO19|GPIO1|GPIO0|*1|
 |RW|--|GND|GND|GND||
