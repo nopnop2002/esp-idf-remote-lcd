@@ -92,54 +92,54 @@ static esp_err_t control_handler(httpd_req_t *req)
 		parse = false;
 	}
 
-    // Search cursor item
-    bool cursor = false;
-    state = cJSON_GetObjectItem(root, "cursor");
-    if (state) {
-        strcpy(wk, cJSON_GetObjectItem(root, "cursor")->valuestring);
-        if (strcmp (wk, "on") == 0) {
-            cursor = true;
-        } else if (strcmp (wk, "off") == 0) {
-            cursor = false;
-        } else {
-            ESP_LOGW(__FUNCTION__, "cursor is not on/off, so off is applied");
-            cursor = false;
-        }
-    } else {
-        ESP_LOGE(__FUNCTION__, "cursor item not found");
-        parse = false;
-    }
+	// Search cursor item
+	bool cursor = false;
+	state = cJSON_GetObjectItem(root, "cursor");
+	if (state) {
+		strcpy(wk, cJSON_GetObjectItem(root, "cursor")->valuestring);
+		if (strcmp (wk, "on") == 0) {
+			cursor = true;
+		} else if (strcmp (wk, "off") == 0) {
+			cursor = false;
+		} else {
+			ESP_LOGW(__FUNCTION__, "cursor is not on/off, so off is applied");
+			cursor = false;
+		}
+	} else {
+		ESP_LOGE(__FUNCTION__, "cursor item not found");
+		parse = false;
+	}
 
-    // Search blink item
-    bool blink = false;
-    state = cJSON_GetObjectItem(root, "blink");
-    if (state) {
-        strcpy(wk, cJSON_GetObjectItem(root, "blink")->valuestring);
-        if (strcmp (wk, "on") == 0) {
-            blink = true;
-        } else if (strcmp (wk, "off") == 0) {
-            blink = false;
-        } else {
-            ESP_LOGW(__FUNCTION__, "blink is not on/off, so off is applied");
-            blink = false;
-        }
-    } else {
-        ESP_LOGE(__FUNCTION__, "blink item not found");
-        parse = false;
-    }
+	// Search blink item
+	bool blink = false;
+	state = cJSON_GetObjectItem(root, "blink");
+	if (state) {
+		strcpy(wk, cJSON_GetObjectItem(root, "blink")->valuestring);
+		if (strcmp (wk, "on") == 0) {
+			blink = true;
+		} else if (strcmp (wk, "off") == 0) {
+			blink = false;
+		} else {
+			ESP_LOGW(__FUNCTION__, "blink is not on/off, so off is applied");
+			blink = false;
+		}
+	} else {
+		ESP_LOGE(__FUNCTION__, "blink item not found");
+		parse = false;
+	}
 
 	cJSON_Delete(root);
 	if (parse) {
 		ESP_LOGI(__FUNCTION__, "lcd=%d cursor=%d blink=%d", lcd, cursor, blink);
 		httpd_resp_sendstr(req, "control successfully\n");
-        PARAMETER_t paramBuf;
-        strcpy(paramBuf.function, "control");
-        paramBuf.lcd = lcd;
-        paramBuf.cursor = cursor;
-        paramBuf.blink = blink;
-        if (xQueueSend(xQueueParameter, &paramBuf, 10) != pdPASS) {
-            ESP_LOGE(__FUNCTION__, "xQueueSend fail");
-        }
+		PARAMETER_t paramBuf;
+		strcpy(paramBuf.function, "control");
+		paramBuf.lcd = lcd;
+		paramBuf.cursor = cursor;
+		paramBuf.blink = blink;
+		if (xQueueSend(xQueueParameter, &paramBuf, 10) != pdPASS) {
+			ESP_LOGE(__FUNCTION__, "xQueueSend fail");
+		}
 
 	} else {
 		ESP_LOGE(__FUNCTION__, "Request parameter not correct [%s]", buf);
@@ -441,6 +441,7 @@ static esp_err_t favicon_get_handler(httpd_req_t *req)
 /* Function to start the file server */
 esp_err_t start_server(int port)
 {
+	// Allocate memory for rest context
 	rest_server_context_t *rest_context = calloc(1, sizeof(rest_server_context_t));
 	if (rest_context == NULL) {
 		ESP_LOGE(__FUNCTION__, "No memory for rest context");
@@ -467,7 +468,7 @@ esp_err_t start_server(int port)
 		.uri		 = "/",	// Match all URIs of type /path/to/file
 		.method		 = HTTP_GET,
 		.handler	 = root_get_handler,
-		//.user_ctx  = server_data	// Pass server data as context
+		//.user_ctx  = rest_context // Pass server data as context
 	};
 	httpd_register_uri_handler(server, &root);
 
@@ -476,7 +477,7 @@ esp_err_t start_server(int port)
 		.uri		 = "/api/control",
 		.method		 = HTTP_POST,
 		.handler	 = control_handler, 
-		.user_ctx	 = rest_context
+		.user_ctx	 = rest_context // Pass server data as context
 	};
 	httpd_register_uri_handler(server, &control_uri);
 
@@ -485,7 +486,7 @@ esp_err_t start_server(int port)
 		.uri		 = "/api/clear",
 		.method		 = HTTP_POST,
 		.handler	 = clear_handler, 
-		.user_ctx	 = rest_context
+		.user_ctx	 = rest_context // Pass server data as context
 	};
 	httpd_register_uri_handler(server, &clear_uri);
 
@@ -494,7 +495,7 @@ esp_err_t start_server(int port)
 		.uri		 = "/api/gotoxy",
 		.method		 = HTTP_POST,
 		.handler	 = gotoxy_handler, 
-		.user_ctx	 = rest_context
+		.user_ctx	 = rest_context // Pass server data as context
 	};
 	httpd_register_uri_handler(server, &gotoxy_uri);
 
@@ -503,7 +504,7 @@ esp_err_t start_server(int port)
 		.uri		 = "/api/putc",
 		.method		 = HTTP_POST,
 		.handler	 = putc_handler,
-		.user_ctx	 = rest_context
+		.user_ctx	 = rest_context // Pass server data as context
 	};
 	httpd_register_uri_handler(server, &putc_uri);
 
@@ -512,7 +513,7 @@ esp_err_t start_server(int port)
 		.uri		 = "/api/puts",
 		.method		 = HTTP_POST,
 		.handler	 = puts_handler,
-		.user_ctx	 = rest_context
+		.user_ctx	 = rest_context // Pass server data as context
 	};
 	httpd_register_uri_handler(server, &puts_uri);
 
@@ -521,7 +522,7 @@ esp_err_t start_server(int port)
 		.uri		 = "/api/backlight",
 		.method		 = HTTP_POST,
 		.handler	 = backlight_handler,
-		.user_ctx	 = rest_context
+		.user_ctx	 = rest_context // Pass server data as context
 	};
 	httpd_register_uri_handler(server, &backlight_uri);
 
@@ -530,7 +531,7 @@ esp_err_t start_server(int port)
 		.uri		 = "/favicon.ico",
 		.method		 = HTTP_GET,
 		.handler	 = favicon_get_handler,
-		//.user_ctx  = server_data	// Pass server data as context
+		//.user_ctx  = rest_context // Pass server data as context
 	};
 	httpd_register_uri_handler(server, &_favicon_get_handler);
 

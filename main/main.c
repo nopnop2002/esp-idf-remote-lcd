@@ -24,8 +24,8 @@
 #include "netdb.h" // ipaddr_addr
 
 #include <parameter.h>
-#include <hd44780.h>
-#include <esp_idf_lib_helpers.h>
+//#include <hd44780.h>
+//#include <esp_idf_lib_helpers.h>
 
 /* FreeRTOS event group to signal when we are connected*/
 static EventGroupHandle_t s_wifi_event_group;
