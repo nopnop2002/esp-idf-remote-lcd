@@ -89,7 +89,7 @@ menu "Application configuration"
 			string "Subscribe Topic"
 			default "/api/hd44780/#"
 			help
-				Topic of publish.
+				Topic of subscribe.
 
 	endmenu
 
