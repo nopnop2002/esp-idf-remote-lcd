@@ -1,5 +1,9 @@
 ## IDF Component Manager Manifest File
 dependencies:
+  esp-idf-lib/hd44780:
+    version: '*'
+  esp-idf-lib/esp_idf_lib_helpers:
+    version: '*'
   espressif/mdns:
     version: "^1.0.3"
     rules:
@@ -8,9 +12,3 @@ dependencies:
     version: "^1.7.0"
     rules:
       - if: "idf_version >=6.0"
-  UncleRus/esp_idf_lib_helpers:
-    path: components/esp_idf_lib_helpers/
-    git: https://github.com/UncleRus/esp-idf-lib.git
-  UncleRus/hd44780:
-    path: components/hd44780/
-    git: https://github.com/UncleRus/esp-idf-lib.git
