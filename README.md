@@ -1,7 +1,7 @@
 # esp-idf-remote-lcd
 Control the HD44780 LCD using HTTP/MQTT.   
-I use [this](https://github.com/UncleRus/esp-idf-lib/tree/master/components/hd44780) component.   
-It's great work.   
+I use [this](https://github.com/esp-idf-lib/hd44780) component.   
+It's great component.   
 I made this to know if there are any notify on my HEAD LESS linux server.   
 ![head-less-linux](https://user-images.githubusercontent.com/6020549/219907409-27180c9f-5102-449e-b228-574bc881bf18.JPG)
 ![head-less-linux-2](https://user-images.githubusercontent.com/6020549/219907739-55e6ee3a-98c5-45e4-896b-a3ce6ea3f54c.JPG)
